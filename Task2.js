@@ -6,9 +6,41 @@ export default function App() {
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
 
+const styles = StyleSheet.create({
+    bottom: {
+      flexDirection: 'row',
+      padding: 10,
+      margin: 10,
+      gap: 10,
+    },
+    fun: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: 'black',
+      borderRadius: 5,
+      width: 100,
+      height: 'auto',
+      justifyContent: 'space-around',
+    },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    square: {
+      width: 230,
+      height: 160,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: `rgb(${red},${green},${blue})`
+    },
+  });
+  
+
   function ColorBox(props) {
     return (
-      <View style={[styles.square, { backgroundColor: `rgb(${props.red},${props.green},${props.blue})` }]} />
+      <View style={[styles.square]} />
     );
   }
 
@@ -90,33 +122,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  bottom: {
-    flexDirection: 'row',
-    padding: 10,
-    margin: 10,
-    gap: 10,
-  },
-  fun: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 5,
-    width: 100,
-    height: 'auto',
-    justifyContent: 'space-around',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  square: {
-    width: 230,
-    height: 160,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
