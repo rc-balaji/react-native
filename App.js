@@ -24,9 +24,10 @@ const App = () => {
                 onPress={() => navigation.navigate('Completed')}
                 style={{
                   marginRight: 15,
+                  
                 }}
               >
-                <Text style={{color: 'blue'}}>Completed</Text>
+                <Text style={{color:'black',fontSize:18,fontWeight: 'bold'}}>Completed</Text>
               </TouchableOpacity>
             ),
           })}W

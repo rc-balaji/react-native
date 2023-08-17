@@ -88,7 +88,7 @@ const HomeScreen = ({navigation, route}) => {
     
     setCompletedTasks(prev => [...prev, completedTask]);
     
-    alert('Task completed and removed successfully!');
+    alert('Task added in completed successfully!');
   };
 
   const handleUpdate = (index, updatedTask) => {
@@ -167,15 +167,6 @@ const HomeScreen = ({navigation, route}) => {
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
-      
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Completed')}
-        style={{
-          marginRight: 15    
-        }}
-      >
-        <Text style={{color: 'blue'}}>Completed</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -184,7 +175,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    paddingTop: 350,
+    paddingTop: 150,
     justifyContent: 'center',
     alignItems: 'center',
   },
