@@ -7,7 +7,7 @@ import {
   Modal,
   FlatList,
   StyleSheet,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 const AddModal = ({ modalVisible, setModalVisible, inputText, setInputText, addItem }) => (
@@ -58,13 +58,16 @@ const UpdateModal = ({ modalVisible, setModalVisible, updatedText, setUpdatedTex
   </Modal>
 );
 
-const App = () => {
+const HomeScreen = ({navigation, route}) => {
+
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [updateModalVisible, setUpdateModalVisible] = useState(false);
   const [inputText, setInputText] = useState('');
   const [updatedText, setUpdatedText] = useState('');
   const [todoList, setTodoList] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const { setCompletedTasks } = route.params;
 
   const addItem = () => {
     if (inputText.trim() !== '') {
@@ -77,9 +80,14 @@ const App = () => {
   };
 
   const handleComplete = (index) => {
+    const completedTask = todoList[index];
+    
     const updatedList = [...todoList];
     updatedList.splice(index, 1);
     setTodoList(updatedList);
+    
+    setCompletedTasks(prev => [...prev, completedTask]);
+    
     alert('Task completed and removed successfully!');
   };
 
@@ -118,8 +126,9 @@ const App = () => {
       <Text style={ {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10, 
+    marginBottom: 10,
   }} >Welcome you To-do's</Text>
+
       <AddModal
         modalVisible={addModalVisible}
         setModalVisible={setAddModalVisible}
@@ -158,9 +167,18 @@ const App = () => {
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
+      
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Completed')}
+        style={{
+          marginRight: 15    
+        }}
+      >
+        <Text style={{color: 'blue'}}>Completed</Text>
+      </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -220,4 +238,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomeScreen;

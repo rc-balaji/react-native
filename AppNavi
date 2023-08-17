@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+import UserForm from './Pages/Userlogin';
+import UserDetails from './Pages/UserDetails';
+
+const Stack = createStackNavigator();
+
+const App = () => {
+  const [userData, setUserData] = useState(null);
+
+  const handleFormSubmit = (data) => {
+    setUserData(data);
+  };
+
+  return (
+    <PaperProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="UserForm">
+          <Stack.Screen
+            name="UserForm"
+            options={{ title: 'User Details' }}
+          >
+            {(props) => <UserForm {...props} onSubmit={handleFormSubmit} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="UserDetails"
+            options={{ title: 'Details' }}
+          >
+            {(props) => <UserDetails {...props} userData={userData} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
+  );
+};
+
+export default App;
