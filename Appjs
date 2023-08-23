@@ -1,0 +1,104 @@
+import React from 'react';
+import { View, Text,StyleSheet, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+
+
+export default function App(){
+    return(
+        <SafeAreaView style={styles.container} >
+        <View>
+           
+            <Text>
+                Hello Word
+            </Text>
+        </View>
+        </SafeAreaView>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding:30,
+      alignItems:'center',
+      marginHorizontal: 16,
+    },
+
+})
+
+
+
+// const Main = () => {
+//     return (
+//       <View style={styles.container}>
+//         {/* ... Previous header code ... */}
+//         <View style={styles.main}>
+//           {/* Home Section */}
+//           <View style={styles.home}>
+//             {/* ... Home section content ... */}
+//           </View>
+          
+//           {/* About Section */}
+//           <View style={styles.about}>
+//             <View style={styles.about__container}>
+//               <Image source={require('./img/about.png')} style={styles.about__img} />
+//               <View style={styles.about__card}>
+//                 <Text style={styles.about__card-title}>2.500+</Text>
+//                 <Text style={styles.about__card-description}>Supercharges placed along popular routes</Text>
+//               </View>
+//               <View style={styles.about__data}>
+//                 <Text style={styles.about__title}>Machines With Future Technology</Text>
+//                 <Text style={styles.about__description}>
+//                   See the future with high-performance electric cars produced by
+//                   renowned brands. They feature futuristic builds and designs with
+//                   new and innovative platforms that last a long time.
+//                 </Text>
+//                 <TouchableOpacity style={styles.button}>
+//                   <Text>Know more</Text>
+//                 </TouchableOpacity>
+//               </View>
+//             </View>
+//           </View>
+  
+//           {/* Popular Section */}
+//           <View style={styles.popular}>
+//             <Text style={styles.section__title}>Choose Your Electric Car of The Porsche Brand</Text>
+//           </View>
+  
+//           {/* Features Section */}
+//           <View style={styles.features}>
+//             <Text style={styles.section__title}>More Features</Text>
+//             <View style={styles.feature__container}>
+//               <View style={styles.features__group}>
+//                 <Image source={require('./img/features.png')} style={styles.features__img} />
+//                 <View style={styles.features__card, styles.features__card-1}>
+//                   <Text style={styles.features__card-title}>800v</Text>
+//                   <Text style={styles.features__card-description}>Turbo Charging</Text>
+//                 </View>
+//                 {/* ... Repeat for other features cards ... */}
+//               </View>
+//               <Image source={require('./img/map.svg')} style={styles.features__map} />
+//             </View>
+//           </View>
+  
+//           {/* Featured Section */}
+//           <View style={styles.featured} id="featured">
+//             {/* ... Content of the featured section ... */}
+//           </View>
+  
+//           {/* Offer Section */}
+//           <View style={styles.offer}>
+//             {/* ... Content of the offer section ... */}
+//           </View>
+  
+//           {/* Logos Section */}
+//           <View style={styles.logos}>
+//             {/* ... Content of the logos section ... */}
+//           </View>
+//         </View>
+//         {/* ... Footer Section */}
+//       </View>
+//     );
+//   };
+  
+//   export default Main;
+  
