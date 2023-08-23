@@ -1,14 +1,30 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, setIsLoggedIn, username }) => {
   const navigateToComponent = (componentName) => {
     navigation.navigate(componentName);
   };
 
+  const handleAdminPage = () => {
+    const isAdmin = username === "Balaji"; // Checking if the current user is an admin
+
+    if (isAdmin) {
+      navigation.navigate("Admin");
+    } else {
+      Alert.alert("Access Denied", "Admin only");
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Your To-do Lists</Text>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleAdminPage}>
+          <Text style={styles.adminButton}>Admin</Text>
+        </TouchableOpacity>
+      </View>
+       <Text style={styles.usernameText}>Welcome to your To-do List App</Text>
+       
       <TouchableOpacity
         style={styles.componentButton}
         onPress={() => navigateToComponent('HomeWorks')}
@@ -34,14 +50,28 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
-  title: {
-    fontSize: 24,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 150,
+    marginTop: 20,
+    marginLeft:250
+  },
+  usernameText: {
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: 'black',
+  },
+  adminButton: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'blue',
+    marginLeft: 10,
   },
   componentButton: {
     backgroundColor: '#007BFF',

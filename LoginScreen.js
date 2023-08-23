@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ActivityIndicator, Alert } from 'react-native';
 
-const LoginScreen = ({ navigation, setIsLoggedIn }) => {
+const LoginScreen = ({ navigation, setIsLoggedIn, setUsername }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [loginResult, setLoginResult] = useState('');
 
-  const emailList = ["bal@123", "raj@123", "sam@123"];
+  const emailList = ["Bal@123", "Raj@123", "Sam@123"];
   const passwordList = ["123", "456", "789"];
+  const usernameList = ["Balaji", "Raj", "Sam"];
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -21,7 +22,9 @@ const LoginScreen = ({ navigation, setIsLoggedIn }) => {
       setTimeout(() => {
         if (emailIndex !== -1 && password === passwordList[emailIndex]) {
           setLoginResult('success');
-          setIsLoggedIn(true); // Set login status to true
+          setIsLoggedIn(true);
+          setUsername(usernameList[emailIndex]); // Set the username
+          Alert.alert('Success', `Welcome back ${usernameList[emailIndex]}!!!`);
         } else {
           setLoginResult('failure');
         }
