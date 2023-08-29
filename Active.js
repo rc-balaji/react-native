@@ -1,6 +1,6 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
-
+// Welocme
 const App = () => (
   <View style={[styles.container, styles.horizontal]}>
     <Text style={styles.txt} >ActivityIndicator</Text>
